@@ -1,18 +1,29 @@
 {
-  "name": "node-web-site",
+  "name": "fincrowd",
   "version": "1.0.0",
-  "description": "",
   "main": "myserver.js",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "connect-mongo": "3.2.0",
     "ejs": "^2.5.7",
-    "express": "^4.15.4",
+    "express": "^4.17.1",
     "express-partials": "^0.3.0",
-    "morgan": "^1.8.2",
-    "mongodb": "3.4.0",
-    "connect-mongo": "3.2.0"
+    "mongodb": "^3.4.0",
+    "morgan": "^1.8.2"
   },
   "devDependencies": {},
-  "author": "Andy Lai",
-  "license": "ISC"
+  "author": "Lewis Chou",
+  "license": "ISC",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maninhouse/fincrowd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maninhouse/fincrowd/issues"
+  },
+  "homepage": "https://github.com/maninhouse/fincrowd#readme",
+  "description": ""
 }
