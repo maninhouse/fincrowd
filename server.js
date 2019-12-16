@@ -10,7 +10,6 @@ var bodyParser = require('body-parser');
 var partials = require('express-partials');
 var logger = require('morgan');
 
-
 // configure Express
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -22,19 +21,29 @@ app.use(partials());
 app.use(logger('dev'));
 app.use(express.static(__dirname + '/public'));
 
-
 var port = process.env.PORT || 8080;        // set our port
 
+require('../fincrowd/db');
+//var router = express.Router();
+var mongoose = require('mongoose');
+var Block = mongoose.model('Block');
 
-app.route('/login')
-    .get(function (req, res) {
-        res.render('login.ejs');
+//取blockchain最新index
+
+
+//upload 頁面
+app.route('/upload')
+    .get(function (req, res, next) {
+        res.render('upload.ejs');
     })
-    .post(function (req, res) {
-        console.log(req.body.data1);
+    .post(function (req, res, next) {
+        /*console.log(req.body.data1);
         console.log(req.body.data2);
         res.send(`data1: ${req.body.data1}
-        data2: ${req.body.data2}`);
+        data2: ${req.body.data2}`);*/
+        new Block({
+          
+        })
         
     });
 
@@ -67,9 +76,9 @@ app.configure(function(){
     app.use(app.router);
     app.use(express.static(__dirname + '/public'))
 })
-*/
+*//*
 var MongoStore = require('connect-mongo');
-var settings = require('../simple-website-with-nodejs/settings');
+//var settings = require('../simple-website-with-nodejs/settings');
 
 var MongoClient = require('mongodb').MongoClient;
 
@@ -83,4 +92,4 @@ MongoClient.connect('mongodb://localhost:27017/animals', function(err, db) {
     }
     console.log(result);
   });
-});
+});*/
