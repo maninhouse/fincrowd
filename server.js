@@ -23,13 +23,22 @@ app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 8080;        // set our port
 
+
+require('../fincrowd/blockchain');
 require('../fincrowd/db');
 //var router = express.Router();
 var mongoose = require('mongoose');
 var Block = mongoose.model('Block');
+/*
+var fin_crowd = new Blockchain();
 
+var latestBlock = ;
 //取blockchain最新index
-
+Block.find( function(err, chain){
+  latestBlock = chain[chain.length-1];
+  console.log(latestBlock.index);
+      
+});*/
 
 //upload 頁面
 app.route('/upload')
@@ -37,13 +46,16 @@ app.route('/upload')
         res.render('upload.ejs');
     })
     .post(function (req, res, next) {
-        /*console.log(req.body.data1);
-        console.log(req.body.data2);
-        res.send(`data1: ${req.body.data1}
-        data2: ${req.body.data2}`);*/
+        //console.log(req.body.data);
+        res.send(`data: ${req.body.data}`);
+        /*
         new Block({
-          
-        })
+          index: latestBlock.index + 1,
+          data: req.body.data,
+          timestamp: Date.now(),
+          previoushash: latestBlock.hash,
+          hash:
+        })*/
         
     });
 
